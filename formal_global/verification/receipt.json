@@ -1,0 +1,309 @@
+{
+  "status": "PASS",
+  "clean_project_build": true,
+  "lean_trust_level": 0,
+  "completed_at_utc": "2026-09-19T17:27:24.550564+00:00",
+  "lean_version": "Lean (version 4.30.0, arm64-apple-darwin24.6.0, commit d024af099ca4bf2c86f649261ebf59565dc8c622, Release)",
+  "mathlib_revision": "c5ea00351c28e24afc9f0f84379aa41082b1188f",
+  "seconds": 259.655,
+  "modules": [
+    {
+      "file": "LCR/GaussianMoments.lean",
+      "returncode": 0,
+      "seconds": 7.228
+    },
+    {
+      "file": "LCR/ProbitModel.lean",
+      "returncode": 0,
+      "seconds": 3.141
+    },
+    {
+      "file": "LCR/AlgebraicSeed.lean",
+      "returncode": 0,
+      "seconds": 14.041
+    },
+    {
+      "file": "LCR/GaussianMixture.lean",
+      "returncode": 0,
+      "seconds": 8.343
+    },
+    {
+      "file": "LCR/ProbitTransform.lean",
+      "returncode": 0,
+      "seconds": 3.371
+    },
+    {
+      "file": "LCR/TransformedMoments.lean",
+      "returncode": 0,
+      "seconds": 8.106
+    },
+    {
+      "file": "LCR/TransformBounds.lean",
+      "returncode": 0,
+      "seconds": 8.451
+    },
+    {
+      "file": "LCR/GaussianEnvelope.lean",
+      "returncode": 0,
+      "seconds": 8.431
+    },
+    {
+      "file": "LCR/InitialResidual.lean",
+      "returncode": 0,
+      "seconds": 9.307
+    },
+    {
+      "file": "LCR/CertifiedCorrection.lean",
+      "returncode": 0,
+      "seconds": 8.577
+    },
+    {
+      "file": "LCR/GaussianJacobian.lean",
+      "returncode": 0,
+      "seconds": 12.382
+    },
+    {
+      "file": "LCR/SeedNeighborhood.lean",
+      "returncode": 0,
+      "seconds": 11.412
+    },
+    {
+      "file": "LCR/CorrectionAssembly.lean",
+      "returncode": 0,
+      "seconds": 8.48
+    },
+    {
+      "file": "LCR/MatrixOperatorBounds.lean",
+      "returncode": 0,
+      "seconds": 8.161
+    },
+    {
+      "file": "LCR/ComponentDifferentiation.lean",
+      "returncode": 0,
+      "seconds": 9.109
+    },
+    {
+      "file": "LCR/PowerBounds.lean",
+      "returncode": 0,
+      "seconds": 9.272
+    },
+    {
+      "file": "LCR/JacobianEntries.lean",
+      "returncode": 0,
+      "seconds": 8.497
+    },
+    {
+      "file": "LCR/JacobianStability.lean",
+      "returncode": 0,
+      "seconds": 13.794
+    },
+    {
+      "file": "LCR/PolynomialDerivative.lean",
+      "returncode": 0,
+      "seconds": 13.198
+    },
+    {
+      "file": "LCR/HDerivative.lean",
+      "returncode": 0,
+      "seconds": 9.219
+    },
+    {
+      "file": "LCR/JacobianInverse.lean",
+      "returncode": 0,
+      "seconds": 19.976
+    },
+    {
+      "file": "LCR/IndicatorReduction.lean",
+      "returncode": 0,
+      "seconds": 8.674
+    },
+    {
+      "file": "LCR/SeedUniqueness.lean",
+      "returncode": 0,
+      "seconds": 8.997
+    },
+    {
+      "file": "LCR/SeedWeight.lean",
+      "returncode": 0,
+      "seconds": 10.678
+    },
+    {
+      "file": "LCR/FullModelEmbedding.lean",
+      "returncode": 0,
+      "seconds": 3.388
+    },
+    {
+      "file": "LCR/Main.lean",
+      "returncode": 0,
+      "seconds": 8.484
+    },
+    {
+      "file": "LCR.lean",
+      "returncode": 0,
+      "seconds": 8.615
+    },
+    {
+      "file": "Audit.lean",
+      "returncode": 0,
+      "seconds": 8.31
+    }
+  ],
+  "source_sha256": {
+    "LCR/GaussianMoments.lean": "0146d962c04c097748208137fb3e015fdbca7284a4f8ef2583bad0bfb36b4a29",
+    "LCR/ProbitModel.lean": "2babe04f93d6cac16214dc83eef4861e4a1e19f9dfc7e26d8d1f9b665febcba0",
+    "LCR/AlgebraicSeed.lean": "bbf82ca0870ba11d148f18f7af6be70a6d81d32c9a91974cf57abc5c0b1483dc",
+    "LCR/GaussianMixture.lean": "2cab24741cf0314e7a2534d4e8311fa2273cfee0724d9bae39fac92a1a3b0531",
+    "LCR/ProbitTransform.lean": "fdb8aa0b8dc607ed2ce03069c5b78625d61d109914cf88964e061c72dd657c27",
+    "LCR/TransformedMoments.lean": "404a230c6a422b32b74601c85df5ac3a7323c8fdab58b381ca41480006a001d4",
+    "LCR/TransformBounds.lean": "43a7243b74a3c3ac2b1210d2ba80705c4fc3d6ea37bf234e6b79dc147c05d826",
+    "LCR/GaussianEnvelope.lean": "39a22d45e83034a2ae6fa502c254ad1236f44c5f857a2d5516b862e775536a50",
+    "LCR/InitialResidual.lean": "c5fc2e8558c50fcb0c583b9d668c6e70b59d8ea99f82134a48b0fe44a727d0b8",
+    "LCR/CertifiedCorrection.lean": "cb6a1404e422fe25a15606a6e1e9d80f370161a8e02ce08387171552839f6d8d",
+    "LCR/GaussianJacobian.lean": "cdd961d9f93c1bd5d160653f0e75bfe80df92255a2b40cd3e74cf353ae125e4e",
+    "LCR/SeedNeighborhood.lean": "c9a670974107de400b2b4d3cdbd155c6f7629f9dfe6f648f89fd49365a060111",
+    "LCR/CorrectionAssembly.lean": "323520e8df766ab08365cfb60177a951268bb4d377aebef74a51a414dcb7e62d",
+    "LCR/MatrixOperatorBounds.lean": "31ef8d34406e0dfb53da8b0b9ec2a8a5d12f66c6b0ccd4bc0fe5797b2c5415db",
+    "LCR/ComponentDifferentiation.lean": "c7a849bf118655af75ad7b13266f48aea0a6056e31afe3834444c848988daa6a",
+    "LCR/PowerBounds.lean": "4cd090c26ad38539ef5ec08a7b04a507346afe4856e968394d6f0255d3a96962",
+    "LCR/JacobianEntries.lean": "ac887b7ead9ce63718afd5247d98317b6d26d024a26422f00dca2add58a3a424",
+    "LCR/JacobianStability.lean": "a8b908f565ddcb0754707eff7b45c16870ab6527f752b8d2f08030ad4847ba2a",
+    "LCR/PolynomialDerivative.lean": "44110b3e6c075977d571a47fd3ca1a05f4b2b2da89e2b8008f834379f6fb3bb3",
+    "LCR/HDerivative.lean": "37d3dc9e368a174945ae3ca9fd64a4c9ee23f098295ced1e9c7709ce26fa5b6d",
+    "LCR/JacobianInverse.lean": "5a45ca1920d67abd3a88b4f674a53a8dda7d1f10961987f7181b127cc31a76b9",
+    "LCR/IndicatorReduction.lean": "49fd73337bada2195b274b84970b61f733cde3c193ee2cec9fae66af800bf102",
+    "LCR/SeedUniqueness.lean": "b3e855c31b825075d88abccd6042db5f10989f02ebd63873e20a7b517c6d6759",
+    "LCR/SeedWeight.lean": "af9d24f302f05d7f21a2d13c78bbfaddd9715fde2527370adfd93433588f9a4a",
+    "LCR/FullModelEmbedding.lean": "891a118346898f6611b906b5e9181a35aef08e7efc4a0633bd00c9c80fe21538",
+    "LCR/Main.lean": "f8f4eb5bd0dcb4b32c37a94352af1cfbd03fb1b011e51b8050ab2997c09b18fe",
+    "LCR.lean": "9bc28d66a2e3d984147cbf0dfdd63c591de949903f08f4036c2a2d8b05f7c257",
+    "Audit.lean": "e361a597375924394ec7ae5e1f1cd50db3635eddf46daab89ea35467c145ab61"
+  },
+  "tooling_sha256": {
+    "run_lean.py": "5b4cd4814a63c70127707889e7230affb999da0bd10109a9a7227b1703e286c4",
+    "verify.py": "996491a9ab0feeb213172594b2bec05d26dbc11ed6521ee8e7361ee8160de7c7",
+    "lean-toolchain": "54727eec5cba149c18842e6deb5c41b369d66455c93ce135d7d5347c782b2325",
+    "lakefile.toml": "7e868e2a29d0e05d045f1785bebe96232e989d21486b2d799ed8918cbd7582b7"
+  },
+  "audited_axioms": {
+    "LCR.AlgebraicSeed.existsUnique_seed_root": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.gaussian_seeds_equal_moments": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.Phi_sqrt_mul_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.hasFDerivAt_H": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.paper_inverse_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.paper_Jacobian_variation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.paper_correction_lipschitz": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.exists_corrected_gaussian_seed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.correctedGaussianSeed_exact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.correctedGaussianSeed_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.correctedGaussianSeed_limit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.exactThetaA_admissible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.exactThetaB_admissible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.exactThetaB_weight": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.exact_parameters_distinct": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.exact_cells_equal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.global_probit_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.global_four_indicator_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.full_model_five_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.full_model_four_counterexample": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.not_injective_2LCR1_five": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.not_injective_2LCR_five": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.not_injective_2LCR1_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "LCR.not_injective_2LCR_four": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}

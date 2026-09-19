@@ -1,0 +1,208 @@
+
+===== LCR/GaussianMoments.lean =====
+CHECKED LCR/GaussianMoments.lean
+
+===== LCR/ProbitModel.lean =====
+CHECKED LCR/ProbitModel.lean
+
+===== LCR/AlgebraicSeed.lean =====
+LCR/AlgebraicSeed.lean:373:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/AlgebraicSeed.lean:375:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECKED LCR/AlgebraicSeed.lean
+
+===== LCR/GaussianMixture.lean =====
+CHECKED LCR/GaussianMixture.lean
+
+===== LCR/ProbitTransform.lean =====
+LCR/ProbitTransform.lean:50:8: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+CHECKED LCR/ProbitTransform.lean
+
+===== LCR/TransformedMoments.lean =====
+CHECKED LCR/TransformedMoments.lean
+
+===== LCR/TransformBounds.lean =====
+LCR/TransformBounds.lean:37:79: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/TransformBounds.lean:38:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/TransformBounds.lean:61:78: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/TransformBounds.lean:62:57: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/TransformBounds.lean:95:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/TransformBounds.lean:96:80: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECKED LCR/TransformBounds.lean
+
+===== LCR/GaussianEnvelope.lean =====
+LCR/GaussianEnvelope.lean:22:62: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/GaussianEnvelope.lean:22:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECKED LCR/GaussianEnvelope.lean
+
+===== LCR/InitialResidual.lean =====
+CHECKED LCR/InitialResidual.lean
+
+===== LCR/CertifiedCorrection.lean =====
+CHECKED LCR/CertifiedCorrection.lean
+
+===== LCR/GaussianJacobian.lean =====
+LCR/GaussianJacobian.lean:98:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECKED LCR/GaussianJacobian.lean
+
+===== LCR/SeedNeighborhood.lean =====
+CHECKED LCR/SeedNeighborhood.lean
+
+===== LCR/CorrectionAssembly.lean =====
+CHECKED LCR/CorrectionAssembly.lean
+
+===== LCR/MatrixOperatorBounds.lean =====
+CHECKED LCR/MatrixOperatorBounds.lean
+
+===== LCR/ComponentDifferentiation.lean =====
+CHECKED LCR/ComponentDifferentiation.lean
+
+===== LCR/PowerBounds.lean =====
+LCR/PowerBounds.lean:21:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/PowerBounds.lean:22:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+CHECKED LCR/PowerBounds.lean
+
+===== LCR/JacobianEntries.lean =====
+CHECKED LCR/JacobianEntries.lean
+
+===== LCR/JacobianStability.lean =====
+LCR/JacobianStability.lean:293:22: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/JacobianStability.lean:293:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/JacobianStability.lean:358:22: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/JacobianStability.lean:358:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+LCR/JacobianStability.lean:368:5: warning: unused variable `hC`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+LCR/JacobianStability.lean:368:18: warning: unused variable `hS`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECKED LCR/JacobianStability.lean
+
+===== LCR/PolynomialDerivative.lean =====
+CHECKED LCR/PolynomialDerivative.lean
+
+===== LCR/HDerivative.lean =====
+CHECKED LCR/HDerivative.lean
+
+===== LCR/JacobianInverse.lean =====
+LCR/JacobianInverse.lean:268:29: warning: This simp argument is unused:
+  abs_mul
+
+Hint: Omit it from the simp argument list.
+  simp [z, ̲Real.norm_eq_abs, ̲abs_m̵u̵l̵,̵a̵b̵s̵_̵of_nonneg hw0] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LCR/JacobianInverse.lean:273:29: warning: This simp argument is unused:
+  abs_mul
+
+Hint: Omit it from the simp argument list.
+  simp [̵z̵,̵R̵e̵a̵l̵.̵n̵o̵r̵m̵_̵e̵q̵_̵a̵b̵s̵,̵a̵b̵s̵_̵m̵u̵l̵,̵a̵b̵s̵_̵o̵f̵_̵n̵o̵n̵n̵e̵g̵ ̵h̵w̵0̵,̵M̵a̵t̵r̵i̵x̵.̵c̵o̵n̵s̵_̵v̵a̵l̵_̵t̵w̵o̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵M̵a̵t̵r̵i̵x̵.̵v̵e̵c̵H̵e̵a̵d̵,̵M̵a̵t̵r̵i̵x̵.̵v̵e̵c̵T̵a̵i̵l̵]̵[̲z̲,̲ ̲R̲e̲a̲l̲.̲n̲o̲r̲m̲_̲e̲q̲_̲a̲b̲s̲,̲ ̲a̲b̲s̲_̲o̲f̲_̲n̲o̲n̲n̲e̲g̲ ̲h̲w̲0̲,̲ ̲M̲a̲t̲r̲i̲x̲.̲c̲o̲n̲s̲_̲v̲a̲l̲_̲t̲w̲o̲,̲ ̲M̲a̲t̲r̲i̲x̲.̲v̲e̲c̲H̲e̲a̲d̲,̲
+  ̲ ̲ ̲ ̲ ̲ ̲ ̲M̲a̲t̲r̲i̲x̲.̲v̲e̲c̲T̲a̲i̲l̲]̲ at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LCR/JacobianInverse.lean:278:35: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  simp [̵y̵,̵g̵a̵u̵s̵s̵i̵a̵n̵M̵o̵m̵e̵n̵t̵J̵a̵c̵o̵b̵i̵a̵n̵,̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵V̵e̵c̵,̵d̵o̵t̵P̵r̵o̵d̵u̵c̵t̵,̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵s̵u̵c̵c̵]̵[̲y̲,̲ ̲g̲a̲u̲s̲s̲i̲a̲n̲M̲o̲m̲e̲n̲t̲J̲a̲c̲o̲b̲i̲a̲n̲,̲ ̲d̲o̲t̲P̲r̲o̲d̲u̲c̲t̲,̲ ̲F̲i̲n̲.̲s̲u̲m̲_̲u̲n̲i̲v̲_̲s̲u̲c̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+LCR/JacobianInverse.lean:291:35: warning: This simp argument is unused:
+  Matrix.mulVec
+
+Hint: Omit it from the simp argument list.
+  simp [̵y̵,̵g̵a̵u̵s̵s̵i̵a̵n̵M̵o̵m̵e̵n̵t̵J̵a̵c̵o̵b̵i̵a̵n̵,̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵V̵e̵c̵,̵d̵o̵t̵P̵r̵o̵d̵u̵c̵t̵,̵F̵i̵n̵.̵s̵u̵m̵_̵u̵n̵i̵v̵_̵s̵u̵c̵c̵]̵[̲y̲,̲ ̲g̲a̲u̲s̲s̲i̲a̲n̲M̲o̲m̲e̲n̲t̲J̲a̲c̲o̲b̲i̲a̲n̲,̲ ̲d̲o̲t̲P̲r̲o̲d̲u̲c̲t̲,̲ ̲F̲i̲n̲.̲s̲u̲m̲_̲u̲n̲i̲v̲_̲s̲u̲c̲c̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+CHECKED LCR/JacobianInverse.lean
+
+===== LCR/IndicatorReduction.lean =====
+CHECKED LCR/IndicatorReduction.lean
+
+===== LCR/SeedUniqueness.lean =====
+CHECKED LCR/SeedUniqueness.lean
+
+===== LCR/SeedWeight.lean =====
+CHECKED LCR/SeedWeight.lean
+
+===== LCR/FullModelEmbedding.lean =====
+CHECKED LCR/FullModelEmbedding.lean
+
+===== LCR/Main.lean =====
+CHECKED LCR/Main.lean
+
+===== LCR.lean =====
+CHECKED LCR.lean
+
+===== Audit.lean =====
+LCR.global_probit_counterexample : LCR.GlobalProbitCounterexample
+LCR.not_injective_2LCR1_five : ¬Set.InjOn (fun θ => LCR.fullProbitCell θ) {θ | θ.Admissible ∧ θ.EqualLoadings}
+LCR.not_injective_2LCR_five : ¬Set.InjOn (fun θ => LCR.fullProbitCell θ) {θ | θ.Admissible}
+LCR.not_injective_2LCR1_four : ¬Set.InjOn (fun θ => LCR.fullProbitCell θ) {θ | θ.Admissible ∧ θ.EqualLoadings}
+LCR.not_injective_2LCR_four : ¬Set.InjOn (fun θ => LCR.fullProbitCell θ) {θ | θ.Admissible}
+LCR.correctedGaussianSeed_exact :
+  LCR.H LCR.Correction.probitTime LCR.correctedGaussianSeed = LCR.H LCR.Correction.probitTime LCR.gaussianSeedA
+LCR.correctedGaussianSeed_error (n : ℕ) :
+  dist ((LCR.actualCorrection LCR.AlgebraicSeed.seedJinv)^[n] LCR.gaussianSeedB) LCR.correctedGaussianSeed ≤
+    4 / 10 ^ 25 * (1 / 2) ^ n
+'LCR.AlgebraicSeed.existsUnique_seed_root' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.gaussian_seeds_equal_moments' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.Phi_sqrt_mul_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.hasFDerivAt_H' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.paper_inverse_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.paper_Jacobian_variation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.paper_correction_lipschitz' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.exists_corrected_gaussian_seed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.correctedGaussianSeed_exact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.correctedGaussianSeed_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.correctedGaussianSeed_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.exactThetaA_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.exactThetaB_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.exactThetaB_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.exact_parameters_distinct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.exact_cells_equal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.global_probit_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.global_four_indicator_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.full_model_five_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.full_model_four_counterexample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.not_injective_2LCR1_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.not_injective_2LCR_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.not_injective_2LCR1_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LCR.not_injective_2LCR_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+CHECKED Audit.lean

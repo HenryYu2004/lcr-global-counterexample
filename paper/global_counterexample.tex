@@ -1,0 +1,360 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem,fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small An exact global-identification counterexample}
+\fancyhead[R]{\small Research note}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\vt}{\vartheta}
+\newcommand{\ph}{\varphi}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert_\infty}
+\newcommand{\dd}{\,\mathrm d}
+\title{An Exact Counterexample to Global Identification\\
+in a Two-Class Probit Random-Effects Model}
+\author{}
+\date{20 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an exactly specified pair of distinct parameter vectors in a two-class probit-normal random-effects model with five binary indicators. The two vectors have positive loadings, ordered class-specific success probabilities, and different mixing weights, yet induce exactly the same joint response distribution. The construction has two steps: an isolated algebraic root gives two Gaussian mixtures with identical first five moments; a certified contraction then corrects one mixture so that equality survives a fixed, nonzero probit transformation. The second parameter vector is defined by a convergent sequence with an explicit error bound, not by rounded numerical estimates. Marginalization gives a four-indicator counterexample. The construction lies in an exchangeable submodel and does not settle generic global identification under indicator heterogeneity.
+\end{abstract}
+
+\paragraph{AI contribution.}
+The counterexample construction, mathematical proof, manuscript draft, and Lean formalization were produced by an AI system through OpenAI Codex, in response to research questions, constraints, and iterative critical feedback from Hanrui Yu. This was substantive mathematical work, not merely language editing. The core theorem is machine-checked; no independent human peer review or established bibliographic priority is claimed. The accompanying \texttt{AI\_PROVENANCE.md} describes the contribution and verification boundaries.
+
+\section{The model and the result}
+The probit-normal random-effects model of Qu, Tan and Kutner~\cite{qu}, also discussed by Jones et al.~\cite{jones}, allows dependence between diagnostic tests within an unobserved disease class. Write
+\[
+ D\sim\operatorname{Bernoulli}(\pi),\qquad U\sim N(0,1),\qquad D\perp U,
+\]
+and, conditional on $(D,U)$, let the binary indicators be independent with
+\begin{equation}\label{eq:model}
+ \Pr(X_i=1\mid D=d,U)=\Phi(\alpha_{id}+\beta_{id}U).
+\end{equation}
+Here $\Phi$ and $\ph$ denote the standard-normal distribution function and density. The full model is called 2LCR; 2LCR1 requires $\beta_{id}=\beta_d$ within each class. Our counterexample makes the additional choice $\alpha_{id}=\alpha_d$. This is a legitimate submodel of both, not a restriction assumed for every parameter in 2LCR1.
+
+In this exchangeable submodel, write $\theta=(\pi,\alpha_0,\alpha_1,\beta_0,\beta_1)$. Global identification would require that the joint response distribution uniquely determine $\theta$ after label and sign conventions.
+
+\begin{theorem}\label{thm:main}
+For five indicators, the observation map is not injective even on the restricted domain
+\begin{equation}\label{eq:restrictions}
+ 0<\pi<1,\qquad \alpha_0<0<\alpha_1,\qquad 0<\beta_0<\beta_1.
+\end{equation}
+An exact counterexample consists of
+\begin{equation}\label{eq:thetaA}
+ \theta_A=\left(\frac12,-\varepsilon_*,\varepsilon_*,
+                  \varepsilon_*,\sqrt2\,\varepsilon_*\right),
+ \qquad \varepsilon_*=10^{-20},
+\end{equation}
+and the uniquely specified $\theta_B^*$ constructed below, whose mixing weight lies in $(0.69,0.72)$. All 32 cell probabilities coincide exactly. The same pair is a counterexample for four indicators by marginalization.
+\end{theorem}
+
+The sign restriction on the intercepts fixes the class labels: the class-0 marginal success probability is below $1/2$ and the class-1 probability is above $1/2$. Positive loadings remove the within-class sign symmetry. Thus the conclusion is not caused by relabeling or sign changes.
+
+\section{Why the problem reduces to five moments}
+Introduce the five Gaussian-mixture parameters
+\begin{equation}\label{eq:Gaussian}
+ \vt=(\pi,\mu_0,\mu_1,v_0,v_1),\qquad
+ Y\sim(1-\pi)N(\mu_0,v_0)+\pi N(\mu_1,v_1),
+\end{equation}
+where $v_d$ is a variance. For a positive scale $\varepsilon$, set
+\begin{equation}\label{eq:map}
+ \alpha_d=\varepsilon\mu_d,\qquad
+ \beta_d=\varepsilon\sqrt{v_d},\qquad Q=\Phi(\varepsilon Y).
+\end{equation}
+Given $Y$, every indicator has success probability $Q$. A particular five-indicator pattern with $s$ successes therefore has probability
+\begin{equation}\label{eq:pattern}
+ \E\{Q^s(1-Q)^{5-s}\}
+ =\sum_{j=0}^{5-s}(-1)^j\binom{5-s}{j}\E Q^{s+j}.
+\end{equation}
+Conversely, $\E Q^k=\Pr(X_1=\cdots=X_k=1)$ is obtained from the joint table, for $1\le k\le5$. Consequently, the first five moments of $Q$ contain exactly the information in this exchangeable binary distribution. Matching these moments is not an approximation to matching the table; it is equivalent to it.
+
+\paragraph{The construction in two steps.}
+We first find two different Gaussian mixtures $\vt_A,\vt_B^0$ with the same first five moments of $Y$. This is an algebraic problem. We then replace $\vt_B^0$ by a nearby, exactly defined $\vt_B^*$ so that the first five moments of $\Phi(\varepsilon_*Y)$ agree with those under $\vt_A$. This correction is essential: matching moments of $Y$ alone does \emph{not} imply matching moments after the nonlinear probit transformation. The superscript $0$ always denotes the algebraic starting point; the star denotes the corrected, final point.
+
+\section{Step 1: an exact algebraic starting pair}\label{sec:seeds}
+Let $M(\vt)=(\E_\vt Y,\ldots,\E_\vt Y^5)$. Choose
+\begin{equation}\label{eq:seedA}
+ \vt_A=(1/2,-1,1,1,2),\qquad
+ M(\vt_A)=\left(0,\frac52,\frac32,\frac{35}2,\frac{55}2\right).
+\end{equation}
+To specify the second mixture, define the integer polynomial
+\begin{align}\label{eq:P}
+ P(p)={}&512p^9-2240p^7-1728p^6-20040p^5+65040p^4\notag\\
+       &-13221p^3-47115p^2+12960p+5832.
+\end{align}
+Let $p_*$ be its unique root in $(634/1000,635/1000)$. Existence and uniqueness follow from the exact rational inequalities
+\begin{equation}\label{eq:isolate}
+ \frac45<P(634/1000)<1,\quad -14<P(635/1000)<-13,
+ \quad -14652<P'(p)<-14447
+\end{equation}
+on the closed isolating interval. Define, in the following order,
+\begin{align}
+ c&=\frac{24p_*^3-80p_*^2+45p_*+54}{2p_*(36-8p_*^3+15p_*)},
+ &s&=\frac{3}{2p_*}-3c,\label{eq:cs}\\
+ \delta&=\sqrt{s^2+4p_*},&
+ \mu_0&=\frac{s-\delta}{2},\qquad\mu_1=\frac{s+\delta}{2},\label{eq:means}\\
+ \pi&=-\frac{\mu_0}{\delta},&v_d&=\frac52-p_*+c\mu_d\quad(d=0,1),\label{eq:recover}
+\end{align}
+and set $\vt_B^0=(\pi,\mu_0,\mu_1,v_0,v_1)$.
+
+\begin{lemma}\label{lem:seed}
+The algebraically defined mixture $\vt_B^0$ is admissible and satisfies
+\begin{equation}\label{eq:Mmatch}
+ M(\vt_B^0)=M(\vt_A).
+\end{equation}
+Moreover, $J_0=DM(\vt_B^0)$ is invertible and $\norm{J_0^{-1}}<122$. Exact parameter enclosures are given in Table~\ref{tab:seed}.
+\end{lemma}
+
+\begin{table}[ht]
+\centering
+\caption{Rational enclosures for the algebraic starting point $\vt_B^0$. Every displayed finite decimal is an exact rational endpoint.}\label{tab:seed}
+\begin{tabular}{@{}ccccc@{}}\toprule
+$\pi$&$\mu_0$&$\mu_1$&$v_0$&$v_1$\\\midrule
+$(.696,.710)$&$(-1.25,-1.20)$&$(.49,.54)$&$(.57,.65)$&$(2.35,2.44)$\\\bottomrule
+\end{tabular}
+\end{table}
+
+The moment identity follows by polynomial elimination; Appendix~\ref{app:algebra} gives the calculation and the Jacobian certificate. The root and interval assertions use rational arithmetic, not floating-point comparisons. Gaussian five-moment ambiguity is classical~\cite{afs}; the purpose of this explicit starting pair is to make the subsequent probit correction fully specified.
+
+For orientation only,
+\[
+ \vt_B^0\approx(.70319845,-1.22566457,.51732074,.61002262,2.39602724).
+\]
+These rounded values are neither the definition of $\vt_B^0$ nor the final counterexample parameters.
+
+\section{Step 2: an exact correction after the probit transformation}\label{sec:correction}
+\subsection{A transformation that is exact, including at the limit}
+Write $t=\varepsilon^2$ and define
+\begin{equation}\label{eq:H}
+ h_t(y)=\int_0^y e^{-tu^2/2}\dd u,\qquad
+ H(t,\vt)=\bigl(\E_\vt h_t(Y)^j\bigr)_{j=1}^5.
+\end{equation}
+Then $H(0,\vt)=M(\vt)$, while, for every $t>0$,
+\begin{equation}\label{eq:affine}
+ \Phi(\sqrt t\,y)=\frac12+\ph(0)\sqrt t\,h_t(y).
+\end{equation}
+Equation~\eqref{eq:affine} is an identity, not a truncated Taylor expansion. Because its slope is nonzero, equality of $H(t,\cdot)$ is equivalent to equality of the first five probit-transformed moments. Thus our remaining task is to solve
+\begin{equation}\label{eq:target}
+ H(t_*,\vt_B^*)=H(t_*,\vt_A),\qquad t_*=10^{-40}.
+\end{equation}
+The algebraic construction establishes this equality at $t=0$, but does not establish it at positive $t$. We now correct the seed at the specified positive $t_*$.
+
+\subsection{The sequence defining the second parameter vector}
+With $J_0=DM(\vt_B^0)$, define
+\begin{equation}\label{eq:T}
+ T(\vt)=\vt-J_0^{-1}\{H(t_*,\vt)-H(t_*,\vt_A)\}.
+\end{equation}
+Start at the algebraic seed and iterate:
+\begin{equation}\label{eq:iteration}
+ \vt^{(0)}=\vt_B^0,\qquad
+ \vt^{(n+1)}=T(\vt^{(n)}),\qquad
+ \vt_B^*=\lim_{n\to\infty}\vt^{(n)}.
+\end{equation}
+All ingredients in this definition have already been specified. The following argument proves that the limit exists, gives its approximation error, and establishes~\eqref{eq:target} exactly.
+
+\subsection{Why the sequence converges to an exact solution}
+For vectors, $\norm{\cdot}$ is the maximum norm; for matrices, it is the induced maximum row-sum norm. Put
+\[
+ r=10^{-18},\qquad C=10^9,\qquad K=10^6,
+ \qquad B=\{\vt:\norm{\vt-\vt_B^0}\le r\}.
+\]
+Both seeds and this ball lie in the rectangle
+\begin{equation}\label{eq:rectangle}
+ \frac14\le\pi\le\frac34,\qquad |\mu_d|\le2,\qquad
+ \frac12\le v_d\le3.
+\end{equation}
+Appendix~\ref{app:bounds} proves, for $0\le t\le1$ on this rectangle, that each first $t$ derivative, mixed $t$--parameter derivative, and second parameter derivative of $H$ has absolute value at most $C$. Hence, on $B$,
+\begin{equation}\label{eq:Jclose}
+ \norm{D_\vt H(t_*,\vt)-J_0}\le5C(t_*+5r).
+\end{equation}
+The important cancellation in~\eqref{eq:T} is
+\[
+ DT(\vt)=-J_0^{-1}\{D_\vt H(t_*,\vt)-J_0\}.
+\]
+Using Lemma~\ref{lem:seed} and the deliberately loose bound $\norm{J_0^{-1}}<K$ gives
+\begin{equation}\label{eq:contract}
+ \sup_{\vt\in B}\norm{DT(\vt)}
+ \le5KC(t_*+5r)<0.026<\frac12.
+\end{equation}
+The equality of the Gaussian moments also gives a small initial displacement:
+\begin{align}\label{eq:displacement}
+ \norm{T(\vt_B^0)-\vt_B^0}
+ &\le K\norm{H(t_*,\vt_B^0)-H(t_*,\vt_A)}\notag\\
+ &\le2KCt_*=2\times10^{-25}.
+\end{align}
+For the last inequality, subtract the exactly equal vectors $H(0,\vt_B^0)$ and $H(0,\vt_A)$ and integrate the bounded $t$ derivatives.
+
+It follows that $T$ maps $B$ into itself:
+\[
+ \norm{T(\vt)-\vt_B^0}
+ \le\frac12r+2\times10^{-25}<r.
+\]
+Banach's fixed-point theorem now proves that~\eqref{eq:iteration} converges to the unique fixed point in $B$, with
+\begin{equation}\label{eq:error}
+ \norm{\vt^{(n)}-\vt_B^*}\le4\times10^{-25}\,2^{-n}\qquad(n\ge0).
+\end{equation}
+At the limit, $T(\vt_B^*)=\vt_B^*$, and invertibility of $J_0$ gives precisely~\eqref{eq:target}. The equation holds with zero residual; the finite-iteration error bound does not replace it.
+
+\subsection{Completing the counterexample}
+Write $\vt_B^*=(\pi_B^*,\mu_{0B}^*,\mu_{1B}^*,v_{0B}^*,v_{1B}^*)$ and define
+\begin{equation}\label{eq:thetaB}
+ \theta_B^*=\left(\pi_B^*,\varepsilon_*\mu_{0B}^*,
+ \varepsilon_*\mu_{1B}^*,\varepsilon_*\sqrt{v_{0B}^*},
+ \varepsilon_*\sqrt{v_{1B}^*}\right).
+\end{equation}
+The first seed $\vt_A$ gives exactly $\theta_A$ in~\eqref{eq:thetaA}. By~\eqref{eq:target},~\eqref{eq:affine}, and~\eqref{eq:pattern}, the two resulting vectors have identical probabilities for every binary response pattern.
+
+Taking $n=0$ in~\eqref{eq:error} gives $\norm{\vt_B^*-\vt_B^0}\le4\times10^{-25}$. The margins in Table~\ref{tab:seed} therefore imply
+\[
+ .69<\pi_B^*<.72,\qquad \mu_{0B}^*<0<\mu_{1B}^*,
+ \qquad 0<v_{0B}^*<v_{1B}^*.
+\]
+Thus both probit vectors satisfy~\eqref{eq:restrictions}, but their mixing weights differ. This proves Theorem~\ref{thm:main}; deleting one indicator proves the four-indicator claim.
+
+\paragraph{What ``exact'' means here.}
+The second vector is defined by a uniquely isolated algebraic root and a specified, provably convergent sequence. It need not have an elementary closed form. Its equality of observable probabilities follows from the fixed-point equation, not from declaring a numerical discrepancy sufficiently small. The very small positive scale makes conservative bounds easy to certify; it is not a zero-loading or coincident-class limit.
+
+\paragraph{Scope.}
+A single pair in this exchangeable submodel disproves injectivity on the full admissible domain of both 2LCR1 and 2LCR for four or five indicators. It does not imply that every parameter is nonidentified, that generic global identification fails under indicator heterogeneity, or that the same pair works for six indicators. Additional assumptions imposing substantial discrimination are also outside this construction.
+
+\appendix
+\section{Algebraic identities and rational certificates}\label{app:algebra}
+\subsection{Deriving the Gaussian starting pair}
+Let the component means be the roots of $x^2-sx-p=0$, with $p>0$, and let their mixing weight make the mean zero. If $Z$ is the resulting two-point mean variable, then
+\[
+ \E Z=0,\qquad \E Z^2=p,\qquad Z^2=sZ+p.
+\]
+Write the component variances as $v+cZ$. The last identity determines all moments of $Z$ by recurrence. Conditional Gaussian-moment expansion gives variance $m_2=v+p$ and cumulants three through five
+\begin{align}
+ k&=p(s+3c),\notag\\
+ l&=p(s^2-2p+6cs+3c^2),\label{eq:cumulants}\\
+ w&=p\{s^3-8ps+10c(s^2-2p)+15c^2s\}.\notag
+\end{align}
+Here $k=\E Y^3$, $l=\E Y^4-3m_2^2$, and $w=\E Y^5-10m_2\E Y^3$. After setting $s=k/p-3c$, define
+\[
+ A=k^2-2p^3-lp,\quad D=4k^2-2p^3-3lp,\quad
+ N=wp^2+2k^3+2kp^3-3klp.
+\]
+The last two cumulant equations reduce to
+\begin{equation}\label{eq:eliminate}
+ 6p^2c^2=A,\qquad cpD=N.
+\end{equation}
+For $pD\ne0$, the converse also holds: $6N^2-AD^2=0$, together with $c=N/(pD)$ and $s=k/p-3c$, implies all three equations in~\eqref{eq:cumulants}. Thus squaring introduces no spurious solution in this specified reconstruction.
+
+For $\vt_A$, the variance and cumulants are $(m_2,k,l,w)=(5/2,3/2,-5/4,-10)$. Substituting them gives the exact polynomial identity
+\[
+ P(p)=64\{6N^2-AD^2\}.
+\]
+The root $p_*$ and formulas~\eqref{eq:cs}--\eqref{eq:recover} therefore reconstruct the same variance and first five moments. The denominator is positive on the isolating interval. Rational interval evaluation gives Table~\ref{tab:seed}, establishing admissibility.
+
+\subsection{The moment Jacobian needed for the correction}
+Let $g_j(\mu,v)=\E N(\mu,v)^j$, so $g_0=1$, $g_1=\mu$, and
+\[
+ g_j=\mu g_{j-1}+(j-1)v g_{j-2},\qquad
+ \partial_\mu g_j=jg_{j-1},\qquad
+ \partial_v g_j=\binom j2g_{j-2}.
+\]
+The variance derivative is zero for $j=1$. Writing $g_{jd}=g_j(\mu_d,v_d)$, row $j$ of $DM$ is
+\begin{equation}\label{eq:Jrow}
+ \left(g_{j1}-g_{j0},\ (1-\pi)jg_{j-1,0},\ \pi jg_{j-1,1},\
+ (1-\pi)\binom j2g_{j-2,0},\ \pi\binom j2g_{j-2,1}\right).
+\end{equation}
+Its determinant is
+\begin{equation}\label{eq:det}
+ \det DM=-\pi^2(1-\pi)^2\delta
+       (\delta^8+18\delta^4\tau^2-135\tau^4),
+ \quad\delta=\mu_1-\mu_0,\quad\tau=v_1-v_0.
+\end{equation}
+Here is a direct verification of the identity. Remove the four mixture-weight factors from~\eqref{eq:Jrow}. Translation by a fixed common mean and subtraction of a fixed common variance are unit-diagonal triangular transformations of moment coordinates, reducing the evaluation to means $(0,\delta)$ and variances $(0,\tau)$. More explicitly, use
+\[
+ \widetilde m_j=j![u^j]\left\{e^{-au-bu^2/2}
+          \sum_{k=0}^5m_k\frac{u^k}{k!}\right\},\qquad m_0=1,
+\]
+with $a=\mu_0$ and $b=v_0$ held fixed during differentiation. This is a polynomial transformation even if a transformed variance is nonpositive. Expanding along the two class-0 derivative columns leaves minus the determinant of
+\[
+ \begin{pmatrix}
+ \delta^3+3\delta\tau&3\delta^2+3\tau&3\delta\\
+ \delta^4+6\delta^2\tau+3\tau^2&4\delta^3+12\delta\tau&6\delta^2+6\tau\\
+ \delta^5+10\delta^3\tau+15\delta\tau^2&5\delta^4+30\delta^2\tau+15\tau^2&10\delta^3+30\delta\tau
+ \end{pmatrix}.
+\]
+Expansion gives $\delta(\delta^8+18\delta^4\tau^2-135\tau^4)$, proving~\eqref{eq:det}.
+
+At $\vt_B^0$, rational interval evaluation gives
+\[
+ -840<\delta^8+18\delta^4\tau^2-135\tau^4<-671,
+ \qquad 47<\det J_0<68.
+\]
+The certificate starts with $p\in[.634,.635]$, evaluates~\eqref{eq:cs}--\eqref{eq:recover}, and bounds $\delta$ by $[1.738,1.748]$ using rational square inequalities. It retains exact interval endpoints throughout; the coarser displayed bounds are not fed back into later calculations. Each inverse entry is a cofactor divided by the determinant. Expanding the $4\times4$ cofactors into their 24 signed terms gives inverse row-sum bounds strictly below $22,60,34,122,61$, respectively. In particular, $\norm{J_0^{-1}}<122$, as required in Lemma~\ref{lem:seed}.
+
+\section{Uniform bounds used in the contraction}\label{app:bounds}
+Represent each component by $Y=\mu+\sqrt v\,U$ and put $L=2(1+|U|)\ge2$. On~\eqref{eq:rectangle},
+\[
+ |Y|\le L,\qquad |Y_v|\le L/2,\qquad |Y_{vv}|\le L/2.
+\]
+For $0\le t\le1$, differentiation of the defining integral gives
+\[
+ |h_t(y)|\le|y|,\quad |h_{t,y}(y)|\le1,\quad
+ |h_{t,yy}(y)|\le|y|,\quad
+ |\partial_t h_t(y)|\le|y|^3/6,\quad
+ |\partial_t h_{t,y}(y)|\le|y|^2/2.
+\]
+For $f_j(t,y)=h_t(y)^j$, $1\le j\le5$, it follows that
+\[
+ |f_{j,y}|\le5L^4,\quad |f_{j,yy}|\le25L^5,\quad
+ |f_{j,t}|\le\frac56L^7,\quad |f_{j,ty}|\le\frac{35}6L^6.
+\]
+The chain rule, including mixture-weight derivatives, therefore bounds every entry by
+\[
+ |\partial_{\vt_a\vt_b}H_j|\le30\E L^7,\qquad
+ |\partial_t\partial_{\vt_a}H_j|\le6\E L^7,\qquad
+ |\partial_tH_j|\le\E L^7.
+\]
+For example, a second variance derivative is bounded by
+$25L^5(L/2)^2+5L^4(L/2)\le30L^7$. A weight derivative replaces a weighted sum by a component difference; the same displayed bounds cover it, and a second weight derivative is zero. All differentiations under the integral are justified by these integrable envelopes.
+
+Since $|u|^7\le1+u^8$ and $\E U^8=105$,
+\[
+ \E L^7\le8192(1+\E|U|^7)\le8192(2+105)=876544<10^6.
+\]
+All derivative bounds are thus below $C=10^9$. Integrating the mixed and second derivative bounds along line segments gives, entry by entry,
+\[
+ |\{D_\vt H(t_*,\vt)-J_0\}_{ja}|
+ \le C\left(t_*+\sum_{b=1}^5|\vt_b-\vt_{B,b}^0|\right)
+ \le C(t_*+5r).
+\]
+Taking a five-entry row sum proves~\eqref{eq:Jclose}.
+
+\paragraph{Reproducibility and verification scope.}
+The accompanying Lean~4/Mathlib project now verifies the core counterexample end to end. Its unconditional main theorems prove noninjectivity of the actual Gaussian-CDF observation maps for 2LCR1 and 2LCR with four and five indicators. The proof includes the unique algebraic root, genuine Gaussian integrals, differentiation under the integral, an inverse-Jacobian bound, quantitative contraction, convergence with the error in~\eqref{eq:error}, strict admissibility, the mixing-weight interval $(.69,.72)$, and equality of all cell probabilities. The full-model inclusion is also formalized using the conditional Bernoulli product integrals. The final theorems have no assumed analytic estimates or identification premises; their axiom dependencies are only the standard Lean foundations.
+
+This is not a claim that every auxiliary numerical enclosure or sentence of this note is formalized. In particular, the Lean proof independently establishes the sufficient inverse bound $K=10^6$, rather than the sharper $122$. The finer interval enclosures remain checked by the accompanying standard-library Python certificate using exact rational arithmetic, not floating-point comparisons. The formalization README identifies the main theorems and gives reproduction instructions and an axiom audit. This note makes no claim of established bibliographic priority.
+
+\begin{thebibliography}{3}
+\bibitem{qu} Qu, Y., Tan, M., and Kutner, M. H. (1996).
+Random effects models in latent class analysis for evaluating accuracy of diagnostic tests.
+\emph{Biometrics} \textbf{52}(3), 797--810.
+\href{https://doi.org/10.2307/2533043}{doi:10.2307/2533043}.
+\bibitem{jones} Jones, G., Johnson, W. O., Hanson, T. E., and Christensen, R. (2010).
+Identifiability of models for multiple diagnostic testing in the absence of a gold standard.
+\emph{Biometrics} \textbf{66}(3), 855--863.
+\href{https://doi.org/10.1111/j.1541-0420.2009.01330.x}{doi:10.1111/j.1541-0420.2009.01330.x}.
+\bibitem{afs} Am\'endola, C., Faug\`ere, J.-C., and Sturmfels, B. (2016).
+Moment varieties of Gaussian mixtures.
+\emph{Journal of Algebraic Statistics} \textbf{7}(1), 14--28.
+\href{https://doi.org/10.18409/jas.v7i1.42}{doi:10.18409/jas.v7i1.42}.
+\end{thebibliography}
+\end{document}
